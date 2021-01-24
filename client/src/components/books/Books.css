@@ -1,0 +1,45 @@
+.book-list {
+    margin: 2em 2em;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* display: grid;
+  grid-auto-flow:column; */
+  }
+  
+  .book-list-item {
+    width: 20%;
+    background-color: rgb(241, 243, 245);
+    border: 1px solid #030205;
+    border-radius: 1rem;
+    /* align-content: baseline;
+    gap: 1em;
+    background-color: #fff; */
+    padding: 1em;
+    margin: 1em 0.1em;
+    box-shadow: 0px 2px 6px 2px #0002;
+  }
+  .book-list-item a {
+    padding: 6px;
+  }
+  .add-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px 20px;
+    margin: 60px;
+  }
+
+  .add-form button {
+    background: #fff;
+    border: 1.2px solid #141414;
+    padding: 15px 25px;
+    border-radius: 40px;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2rem;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+  }
