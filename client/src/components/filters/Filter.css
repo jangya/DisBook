@@ -1,9 +1,24 @@
 .search-input {
     padding: 6px;
+    padding-left: 32px;
     margin-top: 8px;
     font-size: 17px;
-    border: 1px solid #ccc;
+    border: 1px solid #030205;
+    border-radius: 3px;
+    width: 100%;
+}
+.search-container {
+    position: relative;
     width: 50%;
+    margin: 1em auto;
+}
+.search-icon {
+    position: absolute;
+    right: auto;
+    left: .7em;
+    top: 50%;
+    margin-top: -4px;
+    pointer-events: none;
 }
 .search-container button {
     padding: 6px 10px;

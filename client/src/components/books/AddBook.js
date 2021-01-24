@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { FaArrowLeft, FaBook, FaCalculator, FaStickyNote, FaUser } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { addBook, getBook, editBook } from '../../api/booksApi';
@@ -13,6 +15,7 @@ const AddBook = () => {
         count: ''
     });
     const dispatch = useDispatch();
+    
     const loadBook = async () => {
         const result = await getBook(id);
         setBook(result);
@@ -24,13 +27,7 @@ const AddBook = () => {
     }, []);
 
     const handleSubmit = e => {
-        if (id) {
-            dispatch(editBook(book));
-        }
-        else {
-            dispatch(addBook(book));
-        }
-        
+        id ? dispatch(editBook(book)) : dispatch(addBook(book));
         history.push('/');
         e.preventDefault();
     }
@@ -41,21 +38,33 @@ const AddBook = () => {
             ...book,
             [target.name]: target.value
         });
-        e.preventDefault();
     }
     return (
-        <div>
+        <div className="form-container">
             <form onSubmit={handleSubmit} className="add-form">
-                <label>Book Name</label>
-                <input type="text" name="name" value={book.name} onChange={handleChange}/>
-                <label>Description</label>
-                <textarea rows="4" cols="10" value={book.description} name="description" onChange={handleChange}>
-                </textarea>
-                <label>Author</label>
-                <input type="text" name="author" value={book.author} onChange={handleChange}/>
-                <label>Count</label>
-                <input type="number" name="count" value={book.count} onChange={handleChange}/>
-                <button type="submit">Save</button>
+                <Link to={'/'}><FaArrowLeft/></Link>
+                <h2>Add/Edit Books</h2>
+                <div className="input-container">
+                    <i className="icon"><FaBook/></i>
+                    <input className="input-field" type="text" placeholder="Book Name" 
+                        value={book.name} onChange={handleChange} name="name"/>
+                </div>
+                <div className="input-container">
+                    <i className="icon"><FaStickyNote/></i>
+                    <textarea rows="4" cols="10" className="input-field" type="text" placeholder="Description"
+                        value={book.description} onChange={handleChange} name="description"/>
+                </div>
+                <div className="input-container">
+                    <i className="icon"><FaUser/></i>
+                    <input className="input-field" type="text" placeholder="Author"
+                        value={book.author} onChange={handleChange}  name="author"/>
+                </div>
+                <div className="input-container">
+                    <i className="icon"><FaCalculator/></i>
+                    <input className="input-field" type="number" placeholder="Count" 
+                        value={book.count} onChange={handleChange} name="count"/>
+                </div>
+                <button type="submit" className="btn">Save</button>
             </form>
         </div>
     );

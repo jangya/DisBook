@@ -29,7 +29,7 @@ app.delete('/api/books/:id', (req, res) => {
     const foundIndex = data.findIndex(d => d.id == bookId);
     data.splice(foundIndex, 1);
     writeFile(JSON.stringify(data, null, 2), () => {
-      res.status(200).send('Book deleted');
+      res.status(200).send(data);
     });
   }, true);
 });
@@ -48,7 +48,7 @@ app.post('/api/books', (req, res) => {
     data.push(newBook);
 
     writeFile(JSON.stringify(data, null, 2), () => {
-      res.status(200).send('new book added');
+      res.status(200).send(data);
     });
   }, true);
 });
@@ -60,7 +60,7 @@ app.put('/api/books/:id', (req, res) => {
     const foundIndex = data.findIndex(d => d.id == bookId);
     data[foundIndex] = req.body;
     writeFile(JSON.stringify(data, null, 2), () => {
-      res.status(200).send(`Books id:${bookId} updated`);
+      res.status(200).send(data);
     });
   }, true);
 });

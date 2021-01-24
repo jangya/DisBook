@@ -2,7 +2,7 @@ import './Books.css';
 import React from 'react';
 import BookListItem from './BookListItem';
 
-const BookList = ({books}) => {
+const BookList = ({ books, isLoading }) => {
 
     const renderedBookItems = books.map(book => 
         <BookListItem key={book.id} book={book} />
@@ -10,7 +10,9 @@ const BookList = ({books}) => {
 
     return (
         <div className="book-list">
-            {renderedBookItems}
+            {isLoading ? (
+                <p className="loading">Loading...</p>
+            ): renderedBookItems}
         </div>
     );
 }

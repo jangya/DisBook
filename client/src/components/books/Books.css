@@ -7,15 +7,28 @@
     /* display: grid;
   grid-auto-flow:column; */
   }
-  
-  .book-list-item {
+  /* .book-list-item {
+    border: 1px solid #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+    font-size: 2rem;
+    overflow: hidden;
+    min-width: 20%;
+  }
+  .book-list-item:before {
+    background-color: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+    content: '';
+    height: 100%;
+    position: absolute;
     width: 20%;
-    background-color: rgb(241, 243, 245);
+  } */
+  .book-list-item {
+    min-width: 20%;
+    background-color: rgb(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
     border: 1px solid #030205;
     border-radius: 1rem;
-    /* align-content: baseline;
-    gap: 1em;
-    background-color: #fff; */
     padding: 1em;
     margin: 1em 0.1em;
     box-shadow: 0px 2px 6px 2px #0002;
@@ -23,23 +36,48 @@
   .book-list-item a {
     padding: 6px;
   }
-  .add-form {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 10px 20px;
-    margin: 60px;
+  .form-container {
+    max-width: 30em;
+    margin: auto;
   }
-
+  
+  .input-container {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+  }
+  
+  .icon {
+    padding: 10px;
+    background: rgb(82, 82, 83);
+    color: white;
+    min-width: 30px;
+    text-align: center;
+  }
+  
+  .input-field {
+    width: 100%;
+    padding: 10px;
+    outline: none;
+  }
+  
+  .input-field:focus {
+    border: 2px solid rgb(82, 82, 83);
+  }
   .add-form button {
-    background: #fff;
+    background: rgb(82, 83, 83);
+    color: white;
+    width: 20em;
     border: 1.2px solid #141414;
     padding: 15px 25px;
     border-radius: 40px;
     text-align: center;
     margin-top: 20px;
     font-size: 1.2rem;
-    transition: all 0.2s ease-in-out;
     outline: none;
+    opacity: 0.9;
+  }
+  .add-form button:hover {
+    opacity: 1;
   }
