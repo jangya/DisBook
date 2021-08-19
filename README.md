@@ -1,6 +1,6 @@
 # Getting Started with DisBook App
 
-**Live** - https://dis-book.herokuapp.com/
+**Live** - https://dis-books.herokuapp.com/
 
 ## Available Scripts
 
